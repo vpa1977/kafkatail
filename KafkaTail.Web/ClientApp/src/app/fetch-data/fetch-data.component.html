@@ -1,0 +1,22 @@
+<h1 id="tableLabel">Query</h1>
+
+<div class="query-header">
+  <form [formGroup]="queryForm">
+
+    <mat-form-field appearance="fill">
+      <mat-label>Message Filter</mat-label>
+      <input matInput placeholder="Enter jq expression" required />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Selected Topics</mat-label>
+      <mat-select>
+        <mat-option *ngFor="let topic of topicList" [value]="topic">{{topic}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+  </form>
+</div>
+
+
+

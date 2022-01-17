@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "TheIndex": {
+      "commandName": "Project",
+      "commandLineArgs": "Z:\\kafkatail KafkaTail.Web/KafkaTail.Web.csproj"
+    }
+  }
+}

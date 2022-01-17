@@ -1,0 +1,11 @@
+1. List topics in cluster
+2. Configure topic
+3. Remove messages from the topic (recreate topic)
+4. Create topic
+5. Save messages => [topic, timestamp, offset, partition, message]
+6. View messages [topic, timestamp, offset, partition, message]
+7. Upload schema (protobuf desc)
+8. View messages with schema
+9. View messges with filters (topic)
+10. View messges with filters (from offset)
+11. View messages with filters (message data - from schema). Need details
