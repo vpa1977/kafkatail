@@ -1,10 +1,10 @@
-// Note: Make sure to modify the gRPC version if it is no 
+// Note: Make sure to modify the gRPC version if it is no
 // longer compatible w/ the latest gradle version.
 //
 // Visit https://mvnrepository.com/artifact/io.grpc/grpc-protobuf
 
 plugins {
-    id 'com.diffplug.spotless' version '6.10.0'
+	id 'com.diffplug.spotless' version '6.10.0'
 }
 
 ext.grpcVersion = '1.49.0'
@@ -13,32 +13,32 @@ apply plugin: 'eclipse'
 apply plugin: 'java'
 
 repositories {
-  mavenCentral()
+mavenCentral()
 }
 
 
 spotless {
-  // optional: limit format enforcement to just the files changed by this feature branch
-  ratchetFrom 'origin/main'
+// optional: limit format enforcement to just the files changed by this feature branch
+ratchetFrom 'origin/main'
 
-  format 'misc', {
-    // define the files to apply `misc` to
-    target '*.gradle', '*.md', '.gitignore'
+format 'misc', {
+	// define the files to apply `misc` to
+	target '*.gradle', '*.md', '.gitignore'
 
-    // define the steps to apply to those files
-    trimTrailingWhitespace()
-    indentWithTabs() // or spaces. Takes an integer argument if you don't like 4
-    endWithNewline()
-  }
-  
-  java {
-    // don't need to set target, it is inferred from java
+	// define the steps to apply to those files
+	trimTrailingWhitespace()
+	indentWithTabs() // or spaces. Takes an integer argument if you don't like 4
+	endWithNewline()
+}
 
-    // apply a specific flavor of google-java-format
-    googleJavaFormat('1.8').aosp().reflowLongStrings()
-    // make sure every file has the following copyright header.
-    // optionally, Spotless can set copyright years by digging
-    // through git history (see "license" section below)
-    licenseHeader '/* (C)$YEAR */'
-  }
+java {
+	// don't need to set target, it is inferred from java
+target 'src/*/java/**/*.java'
+	// apply a specific flavor of google-java-format
+	googleJavaFormat('1.8').aosp().reflowLongStrings()
+	// make sure every file has the following copyright header.
+	// optionally, Spotless can set copyright years by digging
+	// through git history (see "license" section below)
+	licenseHeader '/* (C)$YEAR */'
+}
 }
