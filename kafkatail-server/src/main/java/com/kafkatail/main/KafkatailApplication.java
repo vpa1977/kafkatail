@@ -1,3 +1,4 @@
+/* Copyright 2022 The Kafkatail Authors*/
 package com.kafkatail.main;
 
 import org.springframework.boot.SpringApplication;
@@ -11,14 +12,13 @@ import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 @EnableAutoConfiguration
 @ComponentScan("com/kafkatail")
 public class KafkatailApplication {
-	
+
   @Bean
   public static PropertySourcesPlaceholderConfigurer propertyPlaceholderConfigurer() {
-     return new PropertySourcesPlaceholderConfigurer();
+    return new PropertySourcesPlaceholderConfigurer();
   }
 
-   public static void main(String[] args) {
-     SpringApplication.run(KafkatailApplication.class, args);
-   }
-
+  public static void main(String[] args) {
+    SpringApplication.run(KafkatailApplication.class, args);
+  }
 }
