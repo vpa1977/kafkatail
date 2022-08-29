@@ -1,0 +1,39 @@
+syntax = "proto3";
+
+package com.kafkatail;
+
+message Void {
+}
+
+message Topic {
+	string Name = 1;
+}
+
+message Topics {
+	repeated Topic Topic = 1;
+}
+
+message TopicRemoveRequest {
+ 	Topic Topic = 1;
+}
+
+message TopicCreateRequest {
+ 	Topic Topic = 1;
+}
+
+message TopicSubscribeRequest {
+	Topic Topic = 1;
+}
+
+message TopicUnsubscribeRequest {
+	Topic Topic = 1;
+}
+
+service TopicsService {
+	rpc GetTopics(Void) returns (Topics);
+	rpc RemoveTopic(TopicRemoveRequest) returns (Topic);
+	rpc CreateTopic(TopicCreateRequest) returns (Topic);
+	rpc Subscribe(TopicSubscribeRequest) returns (Void);
+	rpc Unsubscribe(TopicUnsubscribeRequest) returns (Void);
+	rpc Subscriptions(Void) returns (Topics);
+}
