@@ -1,6 +1,6 @@
 buildscript {
     ext {
-        springBootVersion = '2.7.0'
+        springBootVersion = '2.7.3'
     }
     repositories {
         mavenCentral()
@@ -10,13 +10,18 @@ buildscript {
     }
 }
 
+plugins {
+    id 'org.springframework.boot' version "${springBootVersion}"
+}
+
 apply plugin: 'java'
 apply plugin: 'eclipse'
+apply plugin: 'io.spring.dependency-management'
 apply plugin: 'org.springframework.boot'
 
 jar {
-    baseName = 'com.kafkatail.server'
-    version = '0.0.1-SNAPSHOT'
+    archiveBaseName = 'com.kafkatail.server'
+    archiveVersion = '0.0.1-SNAPSHOT'
 }
 
 repositories {
