@@ -1,0 +1,3 @@
+rootProject.name = 'kafkatail'
+include 'kafkatail-domain', 'kafkatail-client'
+

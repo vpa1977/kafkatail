@@ -3,3 +3,5 @@
 **/target/**
 **/.mvn/**
 /.metadata/
+**/.gradle/**
+**/build/**

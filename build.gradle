@@ -1,0 +1,6 @@
+// Note: Make sure to modify the gRPC version if it is no 
+// longer compatible w/ the latest gradle version.
+//
+// Visit https://mvnrepository.com/artifact/io.grpc/grpc-protobuf
+
+ext.grpcVersion = '1.49.0'
