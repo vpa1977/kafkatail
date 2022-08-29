@@ -9,7 +9,7 @@ import io.grpc.ManagedChannelBuilder;
 
 public class Main {
 	public static void main(String[] args) {
-	    ManagedChannel channel = ManagedChannelBuilder.forTarget("localhost:8080").usePlaintext().build();
+	    ManagedChannel channel = ManagedChannelBuilder.forTarget("localhost:9090").usePlaintext().build();
         var blockingStub = TopicsServiceGrpc.newBlockingStub(channel);
         var createReq = TopicCreateRequest
         		.newBuilder()
