@@ -19,6 +19,8 @@ message TopicRemoveRequest {
 
 message TopicCreateRequest {
  	Topic Topic = 1;
+ 	uint32 Partitions = 2;
+ 	uint32 ReplicationFactor = 3;
 }
 
 message TopicSubscribeRequest {
