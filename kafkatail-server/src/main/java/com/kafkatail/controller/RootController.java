@@ -15,17 +15,45 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RestController;
+import jdk.jfr.Event;
+import jdk.jfr.Label;
+import jdk.jfr.Name;
+import jdk.jfr.Category;
 
 @RestController
 public class RootController {
 
+	@Name("com.kafkatail.controller.MyEvent")
+	@Label("Hello World!")
+	@Category(">>>>>>>>>>>>>Hello")
+	static class MyEvent extends Event {
+	    @Label("Message")
+	    String message;
+	}
+
   @Autowired private KafkaAdmin _admin;
 
   @Autowired private KafkaMessageService _messageService;
+  
+  private void trace() {
+	  MyEvent event = new MyEvent();
+      event.begin();
+      event.message = "Hello world!";
+      event.commit();
+  }
 
   @GetMapping("/")
   public String index() {
-    return "(kafkatail)";
+	trace();
+    return """
+  <html>
+    <body>
+    <div id='root'/>
+    <script src='/kafkatail-frontend.js'>
+    </script> 
+    </body>
+  </html>
+    """;
   }
 
   @GetMapping("/topics")

@@ -37,3 +37,9 @@ build/
 !**/src/test/**/build/
 
 **/bin/**
+/.vs/kafkatail/v17/.suo
+/gradle/wrapper/gradle-wrapper.jar
+/.vs/ProjectSettings.json
+/kotlin-js-store/yarn.lock
+/.vs/slnx.sqlite
+/.vs/VSWorkspaceState.json

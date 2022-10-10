@@ -1,2 +1,4 @@
 rootProject.name = 'kafkatail'
 include 'kafkatail-domain', 'kafkatail-client', 'kafkatail-server'
+include 'kafkatail-frontend'
+
