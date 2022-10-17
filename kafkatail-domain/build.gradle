@@ -1,3 +1,4 @@
+
 buildscript {
 	repositories {
 		mavenCentral()
@@ -36,10 +37,32 @@ dependencies {
 protobuf {
 	protoc { artifact = 'com.google.protobuf:protoc:3.21.0' }
 	plugins {
-		grpc { artifact = "io.grpc:protoc-gen-grpc-java:${grpcVersion}" // CURRENT_GRPC_VERSION
+		grpc {
+			artifact = "io.grpc:protoc-gen-grpc-java:${grpcVersion}" // CURRENT_GRPC_VERSION
+
 		}
+
+		// commented out util backend is written in kotlin
+//		grpckt {
+//			artifact = "io.grpc:protoc-gen-grpc-kotlin:${project.grpcKotlinVersion}:jdk8@jar"
+//		}
 	}
-generateProtoTasks {
-		all()*.plugins { grpc {} }
+
+	generateProtoTasks {
+		all().forEach {
+			it.builtins {
+//			kotlin{}
+				java{
+				}
+			}
+		}
+		all()*.plugins {
+			grpc {}
+//		grpckt{}
+		}
+
 	}
 }
+
+
+

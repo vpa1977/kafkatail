@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package com.kafkatail;
+
+import "tailgrpc.proto";
+
+service TopicsService {
+	rpc GetTopics(Void) returns (Topics);
+	rpc RemoveTopic(TopicRemoveRequest) returns (Topic);
+	rpc CreateTopic(TopicCreateRequest) returns (Topic);
+	rpc Subscribe(TopicSubscribeRequest) returns (Void);
+	rpc Unsubscribe(TopicUnsubscribeRequest) returns (Void);
+	rpc Subscriptions(Void) returns (Topics);
+}
